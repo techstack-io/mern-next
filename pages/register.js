@@ -1,8 +1,20 @@
+import { useState } from "react";
 import Layout from "../components/Layout";
 
 const Register = () => {
+  const [state, setState] = useState({
+    name: '',
+    email: '',
+    password: '',
+    error: '',
+    success: '',
+    buttonText: 'Register'
+  })
+
+  
+
   const registerForm = () => (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div class="min-h-screen bg-gray-100 flex flex-col justify-center sm:py-12">
         <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
           <h1 class="text-center text-2xl mb-5">Register for an account...</h1>
@@ -12,6 +24,7 @@ const Register = () => {
                 Name
               </label>
               <input
+                onChange={handleChange('name')}
                 type="text"
                 class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
@@ -19,6 +32,7 @@ const Register = () => {
                 E-Mail
               </label>
               <input
+              onChange={handleChange('email')}
                 type="text"
                 class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
@@ -26,6 +40,7 @@ const Register = () => {
                 Password
               </label>
               <input
+                onChange={handleChange('password')}
                 type="text"
                 class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
               />
